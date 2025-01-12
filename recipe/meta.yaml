@@ -12,19 +12,19 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   entry_points:
     - mdv = mdv:run
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
   run:
     - markdown
     - pygments
-    - python >=3.7
+    - python >={{ python_min }}
     - six
     - tabulate
 
@@ -38,6 +38,7 @@ test:
     - mdv --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/WillNye/terminal_markdown_viewer
