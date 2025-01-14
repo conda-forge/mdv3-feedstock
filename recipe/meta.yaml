@@ -21,8 +21,11 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
+    - setuptools
   run:
-    - markdown
+    # pinned for compatibility
+    # https://github.com/Python-Markdown/markdown/issues/1284
+    - markdown <3.4
     - pygments
     - python >={{ python_min }}
     - six
